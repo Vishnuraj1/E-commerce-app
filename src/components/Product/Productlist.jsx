@@ -42,13 +42,6 @@ const Productlist = () => {
   const maxLenghth=18;  //It is for product text length
   const maxLength2 = 40; //It is for product description length
 
-  const itemsPerRow = 5; // Number of items per row (10 for mobile)
-  
-    // Calculate the number of rows needed based on the array length and items per row
-    const numRows = Math.ceil(data.length / itemsPerRow);
-
-     // Create an array of row indices (0, 1, 2, ...)
-  const rowIndices = Array.from({ length: numRows }, (_, index) => index);
 
 
     return (
@@ -57,11 +50,11 @@ const Productlist = () => {
 
             <div className='container'>
 
-                {rowIndices.map((rowIndex, index) => (
+             
 
-                    <div className='row' key={index}>
+                    <div className='row'>
 
-                        {data.slice(rowIndex * itemsPerRow, (rowIndex + 1) * itemsPerRow).map((items, index) => (
+                        {data.map((items, index) => (
                             <div key={index} className='post'>
 
                                 <img className='postImage' src={items.image} alt="error to load" />
@@ -76,7 +69,7 @@ const Productlist = () => {
                         ))}
                     </div>
 
-                ))}
+                
             </div>
         </div>
     )

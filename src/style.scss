@@ -2,6 +2,25 @@
     width: 100%;
 }
 
+
+
+@mixin mobile{
+    @media screen and (max-width:480px) {
+        @content;
+    }
+}
+@mixin tablet{
+    @media screen and (max-width:768px) {
+        @content;
+    }
+}
+@mixin laptop{
+    @media screen and (max-width:1200px) {
+        @content;
+    }
+}
+
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -53,45 +72,61 @@
     display: flex;
     gap: 80px;
     padding:30px;
-    .post{
-        height: 500px;
 
-        .postImage{
-            width: 200px;
-            height: 200px;
+    .row{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        @include mobile{
+            grid-template-columns: repeat(2, 1fr);
         }
-        .product_name{
-            width: 200px;
-            height:20px;
-            font-size: 20px;
-        }
-        .product_description{
-            width: 200px;
-            padding-top: 9px;
-        }
-        .AddCart_btn{
-            display: none;
-        }
-        &:hover {
+        
+        .post{
+            height: 500px;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:10px 80px;
+            
+            .postImage{
+                width: 200px;
+                height: 200px;
+            }
+            .product_name{
+                width: 200px;
+                height:20px;
+                font-size: 20px;
+            }
+            .product_description{
+                width: 200px;
+                padding-top: 9px;
+            }
             .AddCart_btn{
-           display: block;
-           
+                display: none;
+            }
+            &:hover {
+                .AddCart_btn{
+                    display: block;
+                    
+                }
+            }
+            &:hover{
+                .AfterCart{
+                    display: block;
+                    display: flex;
+                }
+            }
+            .cart_btn:hover{
+                color: black;
+                background-color: white;
+            }
+            .cart_btn:active{
+                background-color: green;
+                color: white;
             }
         }
-        &:hover{
-            .AfterCart{
-                display: block;
-                display: flex;
-            }
-        }
-        .cart_btn:hover{
-            color: black;
-            background-color: white;
-         }
-         .cart_btn:active{
-             background-color: green;
-             color: white;
-         }
 
 
         }
