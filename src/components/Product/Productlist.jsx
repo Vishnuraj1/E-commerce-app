@@ -42,7 +42,7 @@ const Productlist = () => {
   const maxLenghth=18;  //It is for product text length
   const maxLength2 = 40; //It is for product description length
 
-  const itemsPerRow = 5; // Number of items per row
+  const itemsPerRow = 5; // Number of items per row (10 for mobile)
   
     // Calculate the number of rows needed based on the array length and items per row
     const numRows = Math.ceil(data.length / itemsPerRow);
