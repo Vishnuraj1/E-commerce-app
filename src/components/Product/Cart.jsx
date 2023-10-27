@@ -21,14 +21,14 @@ const Cart = () => {
 
     <div className='cart'>
       <FontAwesomeIcon icon="fa-solid fa-xmark" beat  className='close-btn'  onClick={handleIconClick}/>
-      <h1>Shopping Cart</h1>
+      <h1 className='Cart-name'>Shopping Cart</h1>
       <div className='list'>
         {cartList.map((cartItem, index) => (
             <div key={index} className='list-box'>
               <img src={cartItem.image} alt="" className='cartImg'/>
           <p className='cart-title'>{cartItem.title}  </p>
           <p className='cart-price'>${cartItem.price}</p>
-          <button onClick={()=> dispatch(removeFromCart(cartItem.id))}>Remove </button>
+          <button className='remove-btn' onClick={()=> dispatch(removeFromCart(cartItem.id))}>Remove </button>
           </div>
         ))}
       </div>

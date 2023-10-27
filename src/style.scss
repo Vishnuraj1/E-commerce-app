@@ -194,6 +194,19 @@
         top: 70px;
         right: -600px;
         cursor: pointer;
+
+        @include mobile{
+            font-size: medium;
+            position: relative;
+            top: 20px;
+            right: -120px;
+        }
+       }
+       .Cart-name{
+
+        @include mobile{
+            font-size: medium;
+        }
        }
        .list{
         //   overflow: auto;
@@ -202,16 +215,41 @@
               flex-direction: row;
               margin: 30px 50px;
               gap: 40px;
+
+              @include mobile{
+                gap: 10px;
+            }
              .cartImg{
                  height: 100px;
                  width: 100px;
+
+                 @include mobile{
+                    height: 50px;
+                    width: 50px;
+                    padding-top: 16px;
+                }
                 }
                 .cart-title{
                     width: 250px;
+                    @include mobile{
+                        width: 100px;
+                        font-size: small;
+                    }
                 }
                 .cart-price{
                     width: 20px;
                     height: 20px;
+                    @include mobile{
+                        width: 43px;
+                    }
+                }
+                .remove-btn{
+                    @include mobile{
+                        width: 80px;
+                        height: 40px;
+                        padding: 5px;
+                        margin-top: 20px;
+                    }
                 }
             }
         }
