@@ -26,10 +26,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 70px;
+    .title{
+        @include mobile{
+            font-size: x-large;
+            padding-top: 10px;
+        }
+    }
     .cartIcon{
       font-size: 40px;
       cursor: pointer;
       position: relative;
+
+      @include mobile{
+        font-size: x-large;
+    }
 
        .cart-Count{
         font-size: 20px;
@@ -44,6 +54,14 @@
         position: absolute;
         top: -10px;
         left: 4px;
+
+        
+      @include mobile{
+        width: 18px;
+        height: 18px;
+        top: -11px;
+        font-size: medium;
+    }
       }
       .ShopIcon{
         color: white;
@@ -71,7 +89,7 @@
     height: auto;
     display: flex;
     gap: 80px;
-    padding:30px;
+  
 
     .row{
         display: grid;
@@ -89,19 +107,39 @@
             justify-content: center;
             align-items: center;
             padding:10px 80px;
+
+            @include mobile{
+                height: 424px;
+                padding:9px;
+            }
             
             .postImage{
                 width: 200px;
                 height: 200px;
+                @include mobile{
+                    width: 150px;
+                    height: 150px;
+                }
             }
             .product_name{
                 width: 200px;
                 height:20px;
                 font-size: 20px;
+
+                @include mobile{
+                    width: 131px;
+                    font-size: 18px;
+                }
             }
             .product_description{
                 width: 200px;
                 padding-top: 9px;
+
+                @include mobile{
+                    width: 122px;
+                    font-size: 11px;
+                    padding: 5px;
+                }
             }
             .AddCart_btn{
                 display: none;
