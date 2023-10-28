@@ -11,11 +11,11 @@ const CartButtons = ({items}) => {
     
     
     const cartCount = useMemo( ()=>{
-          console.log(cartList,"myr")
+          // console.log(cartList,"myr")
          return cartList?.find((item)=>item?.id == items?.id)?.count ;
         },[cartList]);
        
-        console.log(cartCount,"cartcount");
+        // console.log(cartCount,"cartcount");
       
   return (
     <div>

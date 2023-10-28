@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   
   const totalCartCount = cartList.reduce((acc,value)=> acc += value.count,0);
-  console.log(totalCartCount,"=total")
+  // console.log(totalCartCount,"=total")
 
   useEffect(() => {
     // Function to handle the scroll event
