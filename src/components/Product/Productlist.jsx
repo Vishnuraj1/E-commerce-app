@@ -55,7 +55,9 @@ const Productlist = () => {
 
   return (
     <div className='wrapper'>
+      <div className="search-container">
       <input type="text" className='search-box' placeholder='🔍 Search' value={searchTerm} onChange={handleSearch} />
+      </div>
 
 
       <div className='container'>

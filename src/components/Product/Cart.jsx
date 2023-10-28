@@ -21,7 +21,7 @@ const Cart = () => {
       useEffect(() => {
         // Function to handle the scroll event
         const handleScroll = () => {
-          if (window.scrollY > 100) {
+          if (window.scrollY > 10) {
             setIsSticky(true);
           } else {
             setIsSticky(false);
@@ -51,7 +51,7 @@ const Cart = () => {
         {cartList.map((cartItem, index) => (
             <div key={index} className='list-box'>
               <img src={cartItem.image} alt="" className='cartImg'/>
-          <p className='cart-title'>{cartItem.title}  </p>
+          <p className='cart-title'>{cartItem.title} ... </p>
           <p className='cart-price'>${cartItem.price}</p>
           <button className='remove-btn' onClick={()=> dispatch(removeFromCart(cartItem.id))}>Remove </button>
           </div>
