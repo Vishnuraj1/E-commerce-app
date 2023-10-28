@@ -45,12 +45,12 @@ const Productlist = () => {
 
 
     return (
-        <div className='wrapper'>
+      <div className='wrapper'>
+          <input type="text" className='search-box' placeholder='🔍 Search'/>
           
 
             <div className='container'>
 
-             
 
                     <div className='row'>
 
@@ -60,7 +60,7 @@ const Productlist = () => {
                                 <img className='postImage' src={items.image} alt="error to load" />
                                 <h1 className='product_name' >{items.title.length <= maxLenghth ? items.title : items.title.slice(0, maxLenghth)} ...</h1>
                                 <p className='product_description'>{items.description.length <= maxLength2 ? items.description : items.description.slice(0, maxLength2)} ...</p>
-                                <p className='price'>Rs {Math.floor(items.price)}</p>
+                                <p className='price'>$ {Math.floor(items.price)}</p>
                                 <p className='rating'>⭐{items.rating.rate}/{items.rating.count}</p>
                                 <CartButtons items={items}/>
                             

@@ -1,170 +1,233 @@
-#root{
+#root {
     width: 100%;
 }
 
 
 
-@mixin mobile{
+@mixin mobile {
     @media screen and (max-width:480px) {
         @content;
     }
 }
-@mixin tablet{
+
+@mixin tablet {
     @media screen and (max-width:768px) {
         @content;
     }
 }
-@mixin laptop{
+
+@mixin laptop {
     @media screen and (max-width:1200px) {
         @content;
     }
 }
 
 
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 70px;
-    .title{
-        @include mobile{
+    background-color: #d50000;
+    /* Add a background color */
+    top: 0;
+    /* Stick to the top of the viewport */
+    z-index: 100;
+    height: 90px;
+
+    @include mobile {
+        height: 55px;
+    }
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        // Additional styles for the sticky navbar, if needed
+    }
+
+    .title {
+        @include mobile {
             font-size: x-large;
             padding-top: 10px;
         }
     }
-    .cartIcon{
-      font-size: 40px;
-      cursor: pointer;
-      position: relative;
 
-      @include mobile{
-        font-size: x-large;
-    }
+    .cartIcon {
+        font-size: 40px;
+        cursor: pointer;
+        position: fixed;
+        z-index: 999;
+        right: 54px;
+        top: 31px;
+        //   z-index: 500;
 
-       .cart-Count{
-        font-size: 20px;
-        width: 28px;
-        height: 28px;
-        background-color: red;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 25px ;
-        position: absolute;
-        top: -10px;
-        left: 4px;
+        @include mobile {
+            font-size: x-large;
+            right: 36px;
+            top: 24px;
+        }
 
-        
-      @include mobile{
-        width: 18px;
-        height: 18px;
-        top: -11px;
-        font-size: medium;
-    }
-      }
-      .ShopIcon{
-        color: white;
-      }
+        .cart-Count {
+            font-size: 20px;
+            width: 28px;
+            height: 28px;
+            background-color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 25px;
+            position: absolute;
+            top: -10px;
+            left: 4px;
+
+
+            @include mobile {
+                width: 18px;
+                height: 18px;
+                top: -11px;
+                font-size: medium;
+            }
+        }
+
+        .ShopIcon {
+            color: white;
+        }
     }
 }
 
 
-.AfterCart{
+.AfterCart {
 
     display: none;
     gap: 10px;
-    .Cart-count{
+
+    .Cart-count {
         font-size: larger;
     }
 }
 
 
-.wrapper{
+.wrapper {
     width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-.container{
-    height: auto;
-    display: flex;
-    gap: 80px;
-  
 
-    .row{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-
+    .search-box{
+        margin-top: 24px;
+        padding: 10px;
+        border-radius: 10px;
+        width: 520px;
+        border: none;
+        outline: none;
+        font-size: large;
+        background: transparent;
+        border-bottom:  solid rgb(137, 132, 132) 5px;
         @include mobile{
-            grid-template-columns: repeat(2, 1fr);
+
+            margin-top: 24px;
+            padding: 10px;
+            border-radius: 10px;
+            width: 220px;
+            border: none;
+            outline: none;
+            font-size: large;
+            // text-align: center;
         }
-        
-        .post{
-            height: 500px;
-            width: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding:10px 80px;
 
-            @include mobile{
-                height: 424px;
-                padding:9px;
-            }
-            
-            .postImage{
-                width: 200px;
-                height: 200px;
-                @include mobile{
-                    width: 150px;
-                    height: 150px;
-                }
-            }
-            .product_name{
-                width: 200px;
-                height:20px;
-                font-size: 20px;
+    }
 
-                @include mobile{
-                    width: 131px;
-                    font-size: 18px;
-                }
-            }
-            .product_description{
-                width: 200px;
-                padding-top: 9px;
+    .container {
+        height: auto;
+        display: flex;
+        gap: 80px;
 
-                @include mobile{
-                    width: 122px;
-                    font-size: 11px;
-                    padding: 5px;
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            @include mobile {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .post {
+                height: 500px;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 80px;
+
+                @include mobile {
+                    height: 424px;
+                    padding: 9px;
+                }
+
+                .postImage {
+                    width: 200px;
+                    height: 200px;
+
+                    @include mobile {
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+
+                .product_name {
+                    width: 200px;
+                    height: 20px;
+                    font-size: 20px;
+
+                    @include mobile {
+                        width: 131px;
+                        font-size: 18px;
+                    }
+                }
+
+                .product_description {
+                    width: 200px;
+                    padding-top: 9px;
+
+                    @include mobile {
+                        width: 122px;
+                        font-size: 11px;
+                        padding: 5px;
+                    }
+                }
+
+                .AddCart_btn {
+                    display: none;
+                }
+
+                &:hover {
+                    .AddCart_btn {
+                        display: block;
+
+                    }
+                }
+
+                &:hover {
+                    .AfterCart {
+                        display: block;
+                        display: flex;
+                    }
+                }
+
+                .cart_btn:hover {
+                    color: black;
+                    background-color: white;
+                }
+
+                .cart_btn:active {
+                    background-color: green;
+                    color: white;
                 }
             }
-            .AddCart_btn{
-                display: none;
-            }
-            &:hover {
-                .AddCart_btn{
-                    display: block;
-                    
-                }
-            }
-            &:hover{
-                .AfterCart{
-                    display: block;
-                    display: flex;
-                }
-            }
-            .cart_btn:hover{
-                color: black;
-                background-color: white;
-            }
-            .cart_btn:active{
-                background-color: green;
-                color: white;
-            }
-        }
 
 
         }
@@ -173,78 +236,112 @@
 }
 
 
-.cartContainer{
+.cartContainer {
     height: 100vh;
     width: 100%;
-     position: fixed;
-     top: 0;
-     left: 0;
-     background-color: black;
-     overflow: auto;
-     
-     .cart {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: center;
-  
-       .close-btn{
-        font-size: 50px;
-        position: relative;
-        top: 70px;
-        right: -600px;
-        cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow: auto;
 
-        @include mobile{
-            font-size: medium;
-            position: relative;
-            top: 20px;
-            right: -120px;
-        }
-       }
-       .Cart-name{
+    @include mobile {
+        overflow: scroll;
+        overflow-x: hidden;
 
-        @include mobile{
-            font-size: medium;
-        }
-       }
-       .list{
-        //   overflow: auto;
-         .list-box{
-              display: flex;
-              flex-direction: row;
-              margin: 30px 50px;
-              gap: 40px;
+    }
 
-              @include mobile{
-                gap: 10px;
+    .cart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .header{
+
+
+            @include mobile {
+                width: 352px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: 31px;
             }
-             .cartImg{
-                 height: 100px;
-                 width: 100px;
+            &.sticky {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 100;
+                // Additional styles for the sticky navbar, if needed
+            }
+            
+            .close-btn {
+                font-size: 50px;
+                position: relative;
+                top: 70px;
+                right: -600px;
+                cursor: pointer;
+                
+                @include mobile {
+                    font-size: large;
+                    position: relative;
+                    top: -20px;
+                    right: -199px;
+                }
+            }
+            
+            .Cart-name {
+                
+                @include mobile {
+                    font-size: large;
+                }
+            }
+        }
 
-                 @include mobile{
-                    height: 50px;
-                    width: 50px;
-                    padding-top: 16px;
+        .list {
+
+            //   overflow: auto;
+            .list-box {
+                display: flex;
+                flex-direction: row;
+                margin: 30px 50px;
+                gap: 40px;
+
+                @include mobile {
+                    gap: 10px;
                 }
+
+                .cartImg {
+                    height: 100px;
+                    width: 100px;
+
+                    @include mobile {
+                        height: 50px;
+                        width: 50px;
+                        padding-top: 16px;
+                    }
                 }
-                .cart-title{
+
+                .cart-title {
                     width: 250px;
-                    @include mobile{
+
+                    @include mobile {
                         width: 100px;
                         font-size: small;
                     }
                 }
-                .cart-price{
+
+                .cart-price {
                     width: 20px;
                     height: 20px;
-                    @include mobile{
+
+                    @include mobile {
                         width: 43px;
                     }
                 }
-                .remove-btn{
-                    @include mobile{
+
+                .remove-btn {
+                    @include mobile {
                         width: 80px;
                         height: 40px;
                         padding: 5px;
@@ -255,20 +352,27 @@
         }
     }
 }
-  
-  .bounce {
-    animation: bounce 0.5s; /* Adjust the animation duration as needed */
-  }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
+
+.bounce {
+    animation: bounce 0.5s;
+    /* Adjust the animation duration as needed */
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
     }
+
     40% {
-      transform: translateY(-20px);
+        transform: translateY(-20px);
     }
+
     60% {
-      transform: translateY(-10px);
+        transform: translateY(-10px);
     }
 }
-  

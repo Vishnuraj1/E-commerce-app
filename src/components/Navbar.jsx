@@ -7,11 +7,32 @@ const Navbar = () => {
 
   const {cartList} = useSelector(state=>state.carts)
 
-  const totalCartCount = cartList.reduce((acc,value)=> acc += value.count,0);
-  console.log(totalCartCount,"=total")
   
   const [isBouncing, setIsBouncing] = useState(false);
+  
+  const [isSticky, setIsSticky] = useState(false);
+  
+  const totalCartCount = cartList.reduce((acc,value)=> acc += value.count,0);
+  console.log(totalCartCount,"=total")
 
+  useEffect(() => {
+    // Function to handle the scroll event
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+        // Add event listener for the scroll event
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
 
   
   useEffect(() => {
@@ -31,7 +52,7 @@ const Navbar = () => {
   }, [cartList]);
 
   return (
-    <div className='navbar'>
+    <div className={`navbar ${isSticky ? 'sticky' : ''}`}>
       <div>
         <h1 className='title'>E-commerce</h1>
       </div>
