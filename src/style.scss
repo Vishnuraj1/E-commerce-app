@@ -228,9 +228,24 @@
                         padding: 5px;
                     }
                 }
+               .price{
+                font-size: 30px;
+                margin: 0px;
+
+                @include mobile {
+                    font-size: 25px;
+                }
+               }
 
                 .AddCart_btn {
                     display: none;
+
+                    @include mobile{
+                        display: block;
+                        height: 35px;
+                        font-size: 10px;
+                        margin-top: 10px;
+                    }
                 }
 
                 &:hover {
@@ -260,6 +275,12 @@
 
 
         }
+    }
+
+    .showMore{
+        margin: 10px;
+        background-color: rgb(65, 63, 63);
+        color: #ffffff;
     }
 
 }
@@ -412,5 +433,52 @@
 
     60% {
         transform: translateY(-10px);
+    }
+}
+
+.goToCart{
+    background-color: rgb(83, 80, 80);
+    color: #f3eded;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    height: 60px;
+    background-color:#393737 ;
+
+    @include mobile {
+        flex-direction: column;
+        gap: 2px;
+        height: 100px;
+    }
+
+    .icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        cursor: pointer;
+      
+        @include mobile {
+            margin-top: 18px;
+        }
+
+    }
+
+
+    .copyRights{
+       
+        margin: 5px 10px;
+        padding-right: 30px;
+
+        @include mobile {
+            margin: 0px;
+            padding-right: 0px;
+            display: flex;
+            justify-content: center;
+        }
+
     }
 }

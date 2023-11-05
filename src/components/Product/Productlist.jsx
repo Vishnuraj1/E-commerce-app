@@ -77,8 +77,8 @@ const Productlist = () => {
               <img className='postImage' src={items.image} alt="error to load" />
               <h1 className='product_name' >{items.title.length <= maxLenghth ? items.title : items.title.slice(0, maxLenghth)} ...</h1>
               <p className='product_description'>{items.description.length <= maxLength2 ? items.description : items.description.slice(0, maxLength2)} ...</p>
-              <p className='price'>$ {Math.floor(items.price)}</p>
               <p className='rating'>⭐{items.rating.rate}/{items.rating.count}</p>
+              <p className='price'>$ {Math.floor(items.price)}</p>
               <CartButtons items={items} />
 
 
@@ -86,8 +86,8 @@ const Productlist = () => {
           ))}
         </div>
 
-
       </div>
+      <button className='showMore'>Show more</button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux';
 import AfterCart from './AfterCart';
 import BeforeCart from './BeforeCart';
+import GoToCart from './GoToCart';
 
 const CartButtons = ({items}) => {
     
@@ -16,11 +17,11 @@ const CartButtons = ({items}) => {
         },[cartList]);
        
         // console.log(cartCount,"cartcount");
+        // <AfterCart itemsId={items?.id} cartCount={cartCount} />
       
   return (
     <div>
-        {/* <AfterCart items={items}/>  <BeforeCart items={items}/> */}
-       { cartCount > 0 ? <AfterCart itemsId={items?.id} cartCount={cartCount} /> : <BeforeCart items={items}/>}
+       { cartCount > 0 ? <GoToCart/> : <BeforeCart items={items}/> }
     </div>
   )
 }
